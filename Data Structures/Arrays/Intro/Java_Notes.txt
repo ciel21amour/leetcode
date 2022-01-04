@@ -52,3 +52,12 @@ i : 9
 
 How to compute the number of digits of a number ?
 Divide the number by 10 again and again to get the number of digits.
+
+// max of two numbers
+Math.max(x, y);
+
+// Absolute value of the number
+Math.abs(x);
+
+// sorting of an array 
+Arrays.sort(answer);
