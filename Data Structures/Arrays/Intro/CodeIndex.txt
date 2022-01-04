@@ -1,0 +1,3 @@
+Question 1 : Max Consecutive Ones
+Question 2 : Find Numbers with Even Number of Digits
+Question 3 : Squares of a Sorted Array
