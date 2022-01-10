@@ -1,0 +1,17 @@
+Inserting in array means shofting elements on the left to the left side of the array by one space.
+
+ example : 
+
+Say we want to insert the element at index 2.
+First, we will have to create space for the new element.
+
+for (int i = 4; i >= 2; i--)
+{
+    // Shift each element one position to the right.
+    intArray[i + 1] = intArray[i];
+}
+
+Now that we have created space for the new element,
+we can insert it at the required index.
+
+intArray[2] = 30;
