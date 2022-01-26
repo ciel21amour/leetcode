@@ -1,4 +1,4 @@
-Inserting in array means shofting elements on the left to the left side of the array by one space.
+Inserting in array means shifting elements on the left to the left side of the array by one space.
 
  example : 
 
@@ -15,3 +15,7 @@ Now that we have created space for the new element,
 we can insert it at the required index.
 
 intArray[2] = 30;
+
+
+question 2: 
+// for merging of sorted array, create a copy of the first array and then use it. --> no need to worry about elements in nums1
