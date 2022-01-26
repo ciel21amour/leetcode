@@ -1,0 +1,21 @@
+Deletion in an Array works in a very similar manner to insertion, and has the same three different cases:
+
+Deleting the last element of the Array.
+Deleting the first element of the Array.
+Deletion at any given index.
+
+
+
+
+Even though we call it a deletion, its not like we actually freed up the space for a new element, right? This is because we don't actually need to free up any space. Simply overwriting the value at a certain index deletes the element at that index. Seeing as the length variable in our examples tells us the next index where we can insert a new element, reducing it by one ensures the next new element is written over the deleted one. This also indicates that the Array now contains one less element, which is exactly what we want programmatically.
+
+
+// Say we want to delete the element at index 1
+for (int i = 2; i < length; i++) {
+    // Shift each element one position to the left
+    int_array[i - 1] = int_array[i];
+}
+
+// Again, the length needs to be consistent with the current
+// state of the array.
+length--;
