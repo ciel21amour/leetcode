@@ -1,0 +1,22 @@
+class Solution {
+    public int[] sortArrayByParity(int[] nums) {
+        if(nums == null || nums.length == 0) {
+            return nums;
+        }
+        int current = 0;
+        int temp = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] % 2 == 0) {
+                temp = nums[current];
+                nums[current] = nums[i];
+                nums[i] = temp;
+                current++;
+            }
+        }
+        return nums;
+    }
+}
+
+
+//Runtime: 1 ms
+//Memory Usage: 48 MB

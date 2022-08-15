@@ -1,0 +1,22 @@
+class Solution {
+    public int[] replaceElements(int[] arr) {
+        if(arr.length == 0 || arr == null) {
+            return arr;
+        }
+        int highest = arr[arr.length - 1];
+        int temp = 0;
+        for(int i = arr.length - 1 ; i >= 0 ; i--) {
+            if(highest > arr[i]) {
+                arr[i] = highest;
+            } else {
+                temp = arr[i];
+                arr[i] = highest;
+                highest = temp;
+            }
+        }
+        arr[arr.length - 1] = -1;
+        return arr;
+    }
+}
+
+// need to use temp variable to copy the elements

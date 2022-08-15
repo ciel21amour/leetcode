@@ -1,0 +1,23 @@
+Question 1 : Replace Elements with Greatest Element on Right Side
+
+https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3259/
+
+
+Question 2 : Remove Duplicates from Sorted Array
+
+https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3258/
+
+
+Question 3 : Move Zeroes
+
+https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3157/
+
+
+Question 4 : Sort Array By Parity
+
+https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3260/
+
+
+Question 5 : Remove Element
+
+https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3575/

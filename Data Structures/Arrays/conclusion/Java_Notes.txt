@@ -1,0 +1,2 @@
+Two pointers in array : same direction, opposite direction, fixed length
+Circular Array
