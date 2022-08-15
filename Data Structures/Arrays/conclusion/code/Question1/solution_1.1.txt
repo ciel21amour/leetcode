@@ -1,0 +1,38 @@
+class Solution {
+    public int heightChecker(int[] heights) {
+        int counter = 0; // counter for numbers which are not on right position
+        int[] arr = new int[101]; // help array
+		for(int i = 0; i < heights.length; i++) {
+			// using value as index for arr and value from arr counter of number
+			 /** example 
+			 heights (1, 1, 4, 3, 3, 3)
+			 index   (0, 1, 2, 3, 4, 5)
+			 ============================
+			 arr     (0,2,0,3,1)
+			 index   (0,1,2,3,4)
+			 */ 
+            arr[heights[i]] += 1; // count all items from heights[i] using arr and incrementation
+        } 
+        int i = 0;
+        for(int ii = 0; ii < arr.length; ii++) {
+			// if value is 0 means is not such a number in heights!
+            if (arr[ii] != 0) {  // searching for not 0 value 
+                int repetitions = arr[ii];  // how much numbers with the same value are in heights
+                for(int j = 0;j < repetitions; j++) { // searching all repetitions numbers
+                    if(heights[i] != ii) { // if number on position is different, means is not on his place
+                        counter ++; // counter ++
+                        i++; // move index
+                    } else {
+                        i++; // move index
+                    }
+                }
+            }
+        }
+        return counter;
+    }
+}
+
+
+// not my solution. did not understand for loop on line 21.
+//Runtime: 1 ms
+//Memory Usage: 41.4 MB

@@ -1,0 +1,25 @@
+class Solution {
+    public int heightChecker(int[] heights) {
+        if(heights == null) {
+            return 0;
+        }
+        int ans = 0;
+        int currentHeight = 1;
+        int[] expected = new int[heights.length+5];
+        for(int height : heights){
+            expected[height]++;
+        }
+        for (int height : heights) {
+          while (expected[currentHeight] == 0)
+            ++currentHeight;
+          if (height != currentHeight)
+            ++ans;
+          --expected[currentHeight];
+        }
+        return ans;
+    }
+}
+
+// not my solution. did not understand it yet.
+//Runtime: 1 ms
+//Memory Usage: 21.4 MB

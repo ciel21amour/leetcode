@@ -1,0 +1,16 @@
+class Solution {
+    public boolean checkIfExist(int[] arr) {
+        Set<Double> s = new HashSet<Double>();
+        
+        for (int val :arr) {
+            double temp = val;
+            double x = temp/2;
+            double y = temp*2;
+            if (s.contains(x) || s.contains(y))
+                return true;
+            else
+                s.add(temp);
+        }
+        return false;
+    }
+}

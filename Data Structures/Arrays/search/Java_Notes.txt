@@ -1,0 +1,6 @@
+Liner search
+
+Binary seach if array is sorted.
+
+Always check if array is null or empty.
+

@@ -1,0 +1,121 @@
+Remember, you aren't allowed to create any new Arrays (or any other data structures). for inplace operations.
+If the return type of the question is an Array, then simply return the input Array once you've modified it.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Given a sorted array, remove the duplicates such that each element appears only once.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        
+        // The initial length is simply the capacity.
+        int length = nums.length;
+        
+        // Assume the last element is always unique.
+        // Then for each element, delete it iff it is
+        // the same as the one after it. Use our deletion
+        // algorithm for deleting from any index.
+        for (int i = length - 2; i >= 0; i--) {
+            if (nums[i] == nums[i + 1]) {
+                // Delete the element at index i, using our standard
+                // deletion algorithm we learned.
+                for (int j = i + 1; j < length; j++) {
+                    nums[j - 1] = nums[j];
+                }
+                // Reduce the length by 1.
+                length--;
+            }
+        }
+        // Return the new length.
+        return length;
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+This is actually an in-place algorithm, because it doesn't require any extra space—its space complexity is O(1). However, the time complexity's not so flash, at O(N^2). This is because of the nested loop.
+
+
+We want to get the algorithm down to an O(N)O(N) time complexity.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public int[] copyWithRemovedDuplicates(int[] nums) {
+        
+  // Check for edge cases.
+  if (nums == null || nums.length == 0) {
+      return nums;
+  }
+
+  // Count how many unique elements are in the Array.
+  int uniqueNumbers = 0;
+  for (int i = 0; i < nums.length; i++) {
+      // An element should be counted as unique if it's the first
+      // element in the Array, or is different to the one before it.
+      if (i == 0 || nums[i] != nums[i - 1]) {
+          uniqueNumbers++;
+      }
+  }
+
+  // Create a result Array.
+  int[] result = new int[uniqueNumbers];
+
+  // Write the unique elements into the result Array.
+  int positionInResult = 0;
+  for (int i = 0; i < nums.length; i++) {
+    // Same condition as in the previous loop. Except this time, we can write
+    // each unique number into the result Array instead of just counting them.
+      if (i == 0 || nums[i] != nums[i - 1]) {
+          result[positionInResult] = nums[i];
+          positionInResult++;
+      }
+  }
+  return result;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Did you notice the fatal flaw with this approach though? It's the wrong return type! We could copy the result array back into the input array... and then return the length... but this is not what the question wants us to do. We want to instead do the deletions with a space complexity of O(1)and a time complexity of O(N).
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public int removeDuplicates(int[] nums) {
+        
+  // Check for edge cases.
+  if (nums == null) {
+      return 0;
+  }
+  
+  // Use the two pointer technique to remove the duplicates in-place.
+  // The first element shouldn't be touched; it's already in its correct place.
+  int writePointer = 1;
+  // Go through each element in the Array.
+  for (int readPointer = 1; readPointer < nums.length; readPointer++) {
+      // If the current element we're reading is *different* to the previous
+      // element...
+      if (nums[readPointer] != nums[readPointer - 1]) {
+          // Copy it into the next position at the front, tracked by writePointer.
+          nums[writePointer] = nums[readPointer];
+          // And we need to now increment writePointer, because the next element
+          // should be written one space over.
+          writePointer++;
+      }
+  }
+  
+  // This turns out to be the correct length value.
+  return writePointer;
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+The key thing to notice is that the condition is such that it is impossible for writePointer to ever get ahead of the readPointer. This means that we would never overwrite a value that we haven't yet read
+
+
+This was just a very brief introduction to the very versatile and widely used two-pointer technique.
+
